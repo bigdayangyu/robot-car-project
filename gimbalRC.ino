@@ -16,7 +16,10 @@ std_msgs::Float32 angle_msg;
 
 volatile unsigned long dt;
 volatile unsigned long t0;
-float angle;
+float angle1 = 0;
+float angle2 = 0;
+float angle3 = 0;
+
 // Servo parameters
 Servo servo1;
 Servo servo2;
@@ -26,19 +29,20 @@ void arm_actuator()
     servo2.write(0);
     delay(100);
     }
+
 void arm_move( const geometry_msgs::Vector3& cmd_msg)
 {
-  angle = 10;
-  float servo_cmd1 = angle+cmd_msg.x;
-  float servo_cmd2 = angle+cmd_msg.y;
-  float servo_cmd3 = angle+cmd_msg.z;
+  
+  angle1 = angle1+cmd_msg.x;
+  angle2 = angle2+cmd_msg.y;
+  angle3 = angle2+cmd_msg.z;
 
-  servo1.write(servo_cmd1);
+  servo1.write(angle1);
   delay(10);
-  servo2.write(servo_cmd2);
+  servo2.write(angle1);
   delay(10);
-  angle = servo_cmd1;
-  angle_msg.data = angle;
+  angle1 = angle1;
+  angle_msg.data = angle1;
   
   }
 
