@@ -7,4 +7,5 @@ This RC car is armed with a stabilization platform for camera, to enhance the ex
 
 Robot arm control and RC car control use ROS(Robotic Operating System) to provide communication between Linux based computer Raspberry pi and Arduino via ROS-arduino serial. The input signal is captured by a Python script, ROS publisher will publish the processed command to Arduino to control motor movement. User can use a Xbox Joystick controler to control robot arm, as well as the RC car movement. 
 
+<p align="center"><img src ="https://github.com/bigdayangyu/robot-car-project/blob/master/image/gimbal.JPG" width = 60% /></p>
 Gimbal mounted on this RC car is a camera stabilization system that uses motors to correct unwanted camera motion. Camera gimbal uses an independent arduino to control axis servos. Arduino takes accelerometer reading, and convert acceleration data into angle, then feed data back to PID controller to correct servo angle 
